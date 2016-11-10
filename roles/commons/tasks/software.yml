@@ -1,10 +1,6 @@
 ---
-  
-  - name: Install guake
-    apt:
-      name: guake
-      update_cache: yes
-
   - include: software/vim.yml
+  - include: software/guake.yml
+  - include: software/sublime.yml
   - include: software/chrome.yml
   - include: software/spotify.yml

@@ -1,4 +1,21 @@
 ---
+- name: install software-properties-common
+  apt:
+    name: software-properties-common
+    state: present
+  become: yes
+
+- name: add ansible ppa
+  apt_repository: repo='ppa:ansible/ansible'
+  become: yes
+  
+- name: latest ansible
+  apt:
+    name: ansible
+    state: latest
+    update_cache: yes
+  become: yes
+
 - name: basics - No Guest User
   copy: src=roles/commons/files/99-disable-guest-session.conf dest=/etc/lightdm/lightdm.conf.d/99-disable-guest-session.conf owner=root group=root mode=0644
   become: yes

@@ -1,3 +1,4 @@
 aptitude
 git
+python-apt
 python-dev libxml2-dev libxslt-dev

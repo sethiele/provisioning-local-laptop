@@ -1,7 +1,7 @@
 ---
-- name: software - vim - download vim
+- name: software - guake - install
   apt:
-    name: vim
+    name: guake
     update_cache: yes
     cache_valid_time: 3600
   become: yes
