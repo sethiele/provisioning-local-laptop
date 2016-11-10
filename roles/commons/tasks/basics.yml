@@ -1,0 +1,4 @@
+---
+- name: basics - No Guest User
+  copy: src=roles/commons/files/99-disable-guest-session.conf dest=/etc/lightdm/lightdm.conf.d/99-disable-guest-session.conf owner=root group=root mode=0644
+  become: yes

@@ -1,0 +1,7 @@
+
+---
+- name: vim - download vim
+  apt:
+    name: vim
+    update_cache: yes
+  become: yes

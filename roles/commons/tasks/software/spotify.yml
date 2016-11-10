@@ -1,0 +1,14 @@
+---
+- name: spotify - add source
+  apt_repository: repo='deb http://repository.spotify.com stable non-free' state=present filename='spotify'
+  become: yes
+
+- name: spotify - add key
+  apt_key: keyserver=keyserver.ubuntu.com id=D2C19886
+  become: yes
+
+- name: spotify - install spotify
+  apt:
+    name: spotify-client 
+    update_cache: yes
+  become: yes
