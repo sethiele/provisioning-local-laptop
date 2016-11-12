@@ -1,0 +1,12 @@
+---
+  - name: software - dconf - install
+    apt:
+      name: dconf-editor
+      update_cache: yes
+      cache_valid_time: 3600
+    become: yes
+
+  - name: software - dconf - set launchbar icon size
+    dconf: 
+      key: /org/compiz/profiles/unity/plugins/unityshell/icon-size
+      int: 20

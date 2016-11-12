@@ -1,0 +1,30 @@
+---
+- name: software - plank - add plank ppa
+  apt_repository:
+    repo: 'ppa:ricotz/docky'
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: software - plank - install
+  apt:
+    name: plank
+    update_cache: yes
+  become: yes
+
+- name: software - plank - Make sure that the autostart directory exsists
+  file:
+    path: "{{ ansible_env.HOME }}/.config/autostart"
+    state: directory
+
+- name: software - plank - Make Plank autostart
+  copy:
+    src: plank.desktop
+    dest: "{{ ansible_env.HOME }}/.config/autostart/plank.desktop"
+    mode: 0755
+
+- name: software - plank - Add Trash bin
+  copy:
+    src: trash.dockitem
+    dest: "{{ ansible_env.HOME }}/.config/plank/dock1/launchers"
+    mode: 0755

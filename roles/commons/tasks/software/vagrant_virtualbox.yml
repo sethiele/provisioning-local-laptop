@@ -1,0 +1,22 @@
+---
+- name: software - virtualbox - install
+  apt:
+    name: virtualbox
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: software - virtualbox - install virtualbox-dkms
+  apt:
+    name: virtualbox-dkms
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: software - vagrant - install
+  apt:
+    name: vagrant
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+

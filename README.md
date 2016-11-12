@@ -1,5 +1,7 @@
 # Provisioning my ubuntu laptop with ansible
 
+Based on [JBKahn/provisioning-local](https://github.com/JBKahn/provisioning-local).
+
 ## Preperation
 
 Install latest Ansible Version
