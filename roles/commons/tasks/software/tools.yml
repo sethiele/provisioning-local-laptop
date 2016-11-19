@@ -1,4 +1,18 @@
 ---
+- name: software - vim - install
+  apt:
+    name: vim
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: software - tmux - install
+  apt:
+    name: tmux
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
 - name: software - tools - filezilla install
   apt:
     name: filezilla

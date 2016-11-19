@@ -6,6 +6,6 @@
   - name: software - sublime - install
     apt:
       name: sublime-text-installer
-      state: latest
+      state: present
       update_cache: yes
     become: yes

@@ -1,14 +1,21 @@
 ---
-- name: install software-properties-common
+- name: install basic packages
   apt:
-    name: software-properties-common
+    name: "{{item}}"
     state: present
+  with_items:
+    - software-properties-common
+    - libssl-dev
+    - libreadline-dev
+    - zlib1g-dev
+    - libsqlite3-dev
+    - aptitude
   become: yes
 
 - name: add ansible ppa
   apt_repository: repo='ppa:ansible/ansible'
   become: yes
-  
+
 - name: latest ansible
   apt:
     name: ansible
