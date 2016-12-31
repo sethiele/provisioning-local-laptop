@@ -25,3 +25,20 @@
     update_cache: yes
     cache_valid_time: 3600
   become: yes
+
+- name: software - tools - indicator-multiload
+  apt:
+    name: indicator-multiload
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: software - tools - gnupg2
+  apt:
+    name: "{{item}}"
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - gnupg2
+    - gnupg-doc
+  become: yes
