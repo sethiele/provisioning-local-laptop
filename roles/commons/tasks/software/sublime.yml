@@ -1,11 +1,12 @@
 ---
-  - name: software - sublime - add ppa
-    apt_repository: repo='ppa:webupd8team/sublime-text-3' 
-    become: yes
+- name: software - sublime - add ppa
+  apt_repository: repo='ppa:webupd8team/sublime-text-3' 
+  become: yes
 
-  - name: software - sublime - install
-    apt:
-      name: sublime-text-installer
-      state: present
-      update_cache: yes
-    become: yes
+- name: software - sublime - install
+  apt:
+    name: sublime-text-installer
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
