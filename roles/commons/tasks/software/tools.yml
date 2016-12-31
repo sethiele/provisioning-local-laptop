@@ -44,7 +44,7 @@
   become: yes
 
 # Packages to enable iPhone hotspot via USB
-- name: software - tools - iphone - 
+- name: software - tools - iphone hotspot
   apt:
     name: "{{item}}"
     update_cache: yes
@@ -53,3 +53,23 @@
     - ipheth-utils
     - libimobiledevice-dev
     - libimobiledevice-utils
+  become: yes
+
+# Packages to safe cds
+- name: software - tools - audio codecs
+  apt:
+    name: "{{item}}"
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - lame
+    - vorbis-tools
+    - flac
+    - wavpack
+    - asunder
+  become: yes
+
+- name: software - tools - asunder config
+  template:
+    src: asunder.j2
+    dest: "{{ ansible_env.HOME }}/.asunder"
