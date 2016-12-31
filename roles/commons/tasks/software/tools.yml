@@ -42,3 +42,14 @@
     - gnupg2
     - gnupg-doc
   become: yes
+
+# Packages to enable iPhone hotspot via USB
+- name: software - tools - iphone - 
+  apt:
+    name: "{{item}}"
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - ipheth-utils
+    - libimobiledevice-dev
+    - libimobiledevice-utils
