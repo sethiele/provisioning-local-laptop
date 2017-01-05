@@ -10,6 +10,7 @@
     - zlib1g-dev
     - libsqlite3-dev
     - aptitude
+    - python-pip
   become: yes
 
 - name: basics - No Guest User
