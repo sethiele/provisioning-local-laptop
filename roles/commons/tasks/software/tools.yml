@@ -8,6 +8,7 @@
 
 - name: software - vim - set vim as default editor
   command: update-alternatives --set editor /usr/bin/vim.basic
+  become: yes
   tags:
     - software
     - once
@@ -40,7 +41,6 @@
     cache_valid_time: 3600
   with_items:
     - gnupg2
-    - gnupg-doc
   become: yes
 
 # Packages to enable iPhone hotspot via USB
