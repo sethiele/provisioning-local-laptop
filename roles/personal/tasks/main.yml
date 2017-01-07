@@ -1,8 +1,43 @@
 ---
-# - name: personal | clone dotfiles
-#   git:
-#     repo: git@github.com:sethiele/dotfiles.git
-#     dest: ~/.dotfiles
+- name: personal | clone dotfiles
+  git:
+    repo: git@github.com:sethiele/dotfiles.git
+    dest: ~/.dotfiles
+  tags:
+    - personal
+    - once
+
+- name: personal | download powerline fonts
+  unarchive:
+    src: https://github.com/chrissimpkins/Hack/archive/master.zip
+    dest: "{{ansible_env.HOME}}/Downloads"
+    remote_src: True
+  tags:
+    - personal
+    - once
+
+- name: personal | create font dir
+  file:
+    path: "{{ansible_env.HOME}}/.local/share/fonts"
+    state: directory
+  tags:
+    - personal
+    - once
+
+- name: personal | install font
+  copy: 
+    src: "{{ansible_env.HOME}}/Downloads/Hack-master/build/ttf/{{item}}"
+    dest: "{{ansible_env.HOME}}/.local/share/fonts/{{item}}"
+  with_items:
+    - Hack-BoldItalic.ttf
+    - Hack-Bold.ttf
+    - Hack-Italic.ttf
+    - Hack-Regular.ttf
+  notify:
+    - restart fc-cache 
+  tags:
+    - personal
+
 
 - name: basics - No Guest User
   copy: 

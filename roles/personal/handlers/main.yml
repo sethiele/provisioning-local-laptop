@@ -1,0 +1,4 @@
+---
+- name: restart fc-cache
+  command: fc-cache
+  become: yes
