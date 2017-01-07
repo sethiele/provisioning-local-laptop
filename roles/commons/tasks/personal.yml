@@ -1,5 +1,0 @@
----
-# - name: personal | clone dotfiles
-#   git:
-#     repo: git@github.com:sethiele/dotfiles.git
-#     dest: ~/.dotfiles

@@ -1,4 +1,14 @@
 ---
-  - include: basics.yml
-  - include: personal.yml
-  - include: software.yml
+- name: install basic packages
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - software-properties-common
+    - libssl-dev
+    - libreadline-dev
+    - zlib1g-dev
+    - libsqlite3-dev
+    - aptitude
+    - python-pip
+  become: yes

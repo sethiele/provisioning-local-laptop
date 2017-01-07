@@ -1,0 +1,7 @@
+---
+  - name: software - dconf - install
+    apt:
+      name: dconf-editor
+      update_cache: yes
+      cache_valid_time: 3600
+    become: yes

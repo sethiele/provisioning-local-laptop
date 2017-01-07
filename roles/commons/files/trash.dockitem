@@ -1,5 +1,0 @@
-# This file is handeled by ansible
-
-[PlankDockItemPreferences]
-#The uri for this item.
-Launcher=trash://

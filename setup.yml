@@ -3,3 +3,15 @@
   connection: local
   roles:
     - commons
+
+- name: Install Software
+  hosts: local
+  connection: local
+  roles:
+    - software
+
+- name: Personal Settings
+  hosts: local
+  connection: local
+  roles:
+    - personal  

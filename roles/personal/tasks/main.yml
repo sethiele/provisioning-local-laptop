@@ -1,0 +1,19 @@
+---
+# - name: personal | clone dotfiles
+#   git:
+#     repo: git@github.com:sethiele/dotfiles.git
+#     dest: ~/.dotfiles
+
+- name: basics - No Guest User
+  copy: 
+    src: 99-disable-guest-session.conf
+    dest: /etc/lightdm/lightdm.conf.d/99-disable-guest-session.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+
+- name: software - dconf - set launchbar icon size
+  dconf: 
+    key: /org/compiz/profiles/unity/plugins/unityshell/icon-size
+    int: 20
