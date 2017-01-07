@@ -73,3 +73,10 @@
   template:
     src: asunder.j2
     dest: "{{ ansible_env.HOME }}/.asunder"
+
+- name: software - tools - lftp
+  apt:
+    name: lftp
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes

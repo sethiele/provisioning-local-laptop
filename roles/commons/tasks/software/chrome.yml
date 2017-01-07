@@ -2,10 +2,16 @@
 - name: software - chrome - add source
   apt_repository: repo='deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' state=present filename='google'
   become: yes
+  tags:
+    - ppa
+    - once
 
 - name: software - chrome - add key
   apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
   become: yes
+  tags:
+    - ppa
+    - once
 
 - name: software - chrome - install Chrome
   apt:
