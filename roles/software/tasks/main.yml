@@ -1,9 +1,18 @@
 ---
-  - include: software/chrome.yml
-  - include: software/dconf.yml
-  - include: software/guake.yml
-  - include: software/spotify.yml
-  - include: software/sublime.yml
-  - include: software/tools.yml
-  - include: software/vagrant_virtualbox.yml
-  - include: software/vpn.yml
+- name: software | remove amazon (web) app
+  apt:
+    name: unity-webapps-common
+    state: absent
+  become: yes
+  tags:
+    - software
+    - apt
+
+- include: software/chrome.yml
+- include: software/dconf.yml
+- include: software/guake.yml
+- include: software/spotify.yml
+- include: software/sublime.yml
+- include: software/tools.yml
+- include: software/vagrant_virtualbox.yml
+- include: software/vpn.yml

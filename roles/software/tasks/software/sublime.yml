@@ -1,9 +1,9 @@
 ---
-- name: software - sublime - add ppa
+- name: software | sublime | add ppa
   apt_repository: repo='ppa:webupd8team/sublime-text-3' 
   become: yes
 
-- name: software - sublime - install
+- name: software | sublime | install
   apt:
     name: sublime-text-installer
     state: present

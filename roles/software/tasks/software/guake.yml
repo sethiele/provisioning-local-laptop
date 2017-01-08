@@ -1,17 +1,17 @@
 ---
-- name: software - guake - install
+- name: software | guake | install
   apt:
     name: guake
     update_cache: yes
     cache_valid_time: 3600
   become: yes
 
-- name: software - guake - Make sure that the autostart directory exsists
+- name: software | guake | Make sure that the autostart directory exsists
   file:
     path: "{{ ansible_env.HOME }}/.config/autostart"
     state: directory
 
-- name: software - guake - Make Guake autostart
+- name: software | guake | Make Guake autostart
   copy:
     src: guake.desktop
     dest: "{{ ansible_env.HOME }}/.config/autostart/guake.desktop"

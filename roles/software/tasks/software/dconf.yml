@@ -1,5 +1,5 @@
 ---
-  - name: software - dconf - install
+  - name: software | dconf | install
     apt:
       name: dconf-editor
       update_cache: yes
