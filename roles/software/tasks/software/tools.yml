@@ -120,3 +120,14 @@
     - software
     - tools
     - apt
+
+- name: software | tool | gpa GPG GUI
+  apt:
+    name: gpa
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+  tags:
+    - software
+    - tools
+    - apt
